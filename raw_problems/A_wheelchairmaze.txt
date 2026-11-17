@@ -1,0 +1,4 @@
+Path for the wheelchair as
+given in the sample. The curved arcs show the track taken
+by the large outer wheel as the large inner wheel pivots
+on the corner mark.

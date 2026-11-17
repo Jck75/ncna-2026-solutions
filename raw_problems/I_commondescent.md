@@ -1,0 +1,74 @@
+The royal archive describes the same set of people in two
+different genealogies. Each genealogy is a rooted tree, and
+both use person $1$ as the
+founding ancestor. The two trees do not necessarily agree on
+anyone else’s parent.
+
+A nonempty sequence of distinct people
+
+\[ v_1,v_2,\ldots ,v_k \] 
+
+is a common line of descent if, for every
+$i<k$, person
+$v_i$ is a strict ancestor
+of person $v_{i+1}$ in
+both genealogies. Consecutive people in
+the sequence do not need to be parent and child.
+
+Every person has a positive prestige value. The value of a
+common line of descent is the sum of the prestige values of its
+members.
+
+Find the maximum possible value of a common line of descent,
+and the number of different common lines of descent having that
+value. Two lines are different if their sequences of people are
+different.
+
+## Input
+
+The input consists of four lines:
+
+The first line contains an integer $n$ ( $1\le n\le 200{,}000$ ), the number
+of people.
+
+The second line contains $n$ integers $w_1,w_2,\ldots ,w_n$ 
+($1\le w_i\le 10^9$),
+where $w_i$ is the
+prestige of person $i$ .
+
+The third line contains $n-1$ integers $a_2,a_3,\ldots ,a_n$ . In the
+first genealogy, $a_i$
+is the parent of person $i$ .
+
+The fourth line contains $n-1$ integers $b_2,b_3,\ldots ,b_n$ . In the
+second genealogy, $b_i$ is the parent of person
+$i$.
+
+Each parent list describes a tree rooted at person
+$1$. Parent identifiers
+are not required to be smaller than child identifiers.
+
+## Output
+
+Output two integers: the maximum value of a common line of
+descent, and the number of common lines attaining that value
+modulo $1{,}000{,}000{,}007$ .
+
+## Sample Explanation
+
+The unique maximum-value line is $(1,3,6)$ , with value $5+7+8=20$ . Person $3$ is an ancestor of person
+$6$ in both genealogies,
+even though the two people are not adjacent in the second
+genealogy.
+
+### Sample Input 1
+```
+6
+5 4 7 6 3 8
+1 1 2 2 3
+1 1 3 2 4
+```
+### Sample Output 1
+```
+20 1
+```

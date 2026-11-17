@@ -1,0 +1,3 @@
+Point light source (the star)
+is in the upper-left corner. Shadow boundaries are drawn
+for the planets that are casting shadows.

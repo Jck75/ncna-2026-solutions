@@ -1,0 +1,50 @@
+One of our judges is fond of everything prime - prime time,
+prime rib, prime meridian, prime numbers, etc. We used a sieve
+to come up with an example of a problem the judge has written,
+but for which we haven’t devised a good back story. If you
+finish the entire contest, perhaps you can use the remaining
+time to come up with one! Anyway, here is the problem: Given
+positive integers $L$ and
+$R$, find the digit that
+occurs most frequently among the primes within the range.
+
+## Input
+
+The only input line contains two integers $L$ and $R$ ($1
+\leq L \leq R \leq 10^8$)
+
+## Output
+
+Print a digit that occurs most frequently amongst the primes
+within the range $L$ and
+$R$ inclusively. If there
+is a tie, report the smallest digit. If there are no primes
+within the specified range, print a 0 (zero), as implied by by
+the rule for ties..
+
+### Sample Input 1
+```
+1 10
+```
+### Sample Output 1
+```
+2
+```
+
+### Sample Input 1
+```
+1 1000000
+```
+### Sample Output 1
+```
+1
+```
+
+### Sample Input 1
+```
+30 39
+```
+### Sample Output 1
+```
+3
+```

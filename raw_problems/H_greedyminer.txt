@@ -1,0 +1,4 @@
+Illustration with top down
+view of Sample 1. We can’t afford to put in support
+posts, so need to avoid any 2 x 2 mined squares, but
+still need connected access throughout.

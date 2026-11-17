@@ -1,0 +1,67 @@
+For this problem, you are asked to verify that a given list
+of (not necessarily distinct) integers is totally out of order
+(whether increasing or decreasing). A list is "totally out of
+order" if no two values adjacent in that list would be adjacent
+if the list were sorted. Duplicates are to be treated as being
+indistinct (in that no two duplicates should be adjacent).
+
+## Input
+
+There may be multiple lines of input. The first contains the
+number $n$ ( $0<n<51$ ) of elements in the
+list which will be non-zero. The following $n$ lines each contains one of the
+numbers $N_i$ of the list
+($-10{,}000 < N_i <
+10{,}000$).
+
+## Output
+
+Print the appropriate message "In at least partial order" or
+"Totally out of order".
+
+In Sample 1 the consecutive pair 4 and 6 would be adjacent
+if the list were sorted. In Sample 2 the consecutive pair 3 and
+6 would be adjacent. In Sample 3, no consecutive pair would be
+adjacent.
+
+### Sample Input 1
+```
+5
+2
+10
+3
+6
+4
+```
+### Sample Output 1
+```
+In at least partial order
+```
+
+### Sample Input 1
+```
+5
+2
+10
+3
+6
+1
+```
+### Sample Output 1
+```
+In at least partial order
+```
+
+### Sample Input 1
+```
+5
+-3
+10
+-3
+16
+1
+```
+### Sample Output 1
+```
+Totally out of order
+```

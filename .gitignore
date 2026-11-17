@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.system_generated/
+*.tmp
+raw_problems/*.html
+pi_sessions/
+extract.py

@@ -1,0 +1,4 @@
+Illustration of Sample 1.
+Positions at time 24 - Both ants 2 and 3 will follow the
+newer path of ant 1 while ants 4 and 5 are already inside
+the loop.
