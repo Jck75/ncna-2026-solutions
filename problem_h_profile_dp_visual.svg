@@ -1,0 +1,283 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 760" width="100%" height="100%" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Patterns -->
+    <pattern id="supportPillar" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="2.5" />
+      <rect width="10" height="10" fill="#1e293b" fill-opacity="0.7" />
+    </pattern>
+
+    <!-- Gradients -->
+    <linearGradient id="comp1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <linearGradient id="comp2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7e22ce" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Markers -->
+    <marker id="dsuArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#facc15" />
+    </marker>
+  </defs>
+
+  <!-- Title Header -->
+  <text x="510" y="38" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700" letter-spacing="0.5">
+    Problem H: Profile DP Transition &amp; Connectivity Logic
+  </text>
+  <text x="510" y="62" text-anchor="middle" fill="#94a3b8" font-size="13">
+    Visualizing the 2×2 ceiling rule, DSU component unification, and island abandonment checks
+  </text>
+
+  <!-- ==================== PANEL 1: 2x2 VIOLATION ==================== -->
+  <g transform="translate(30, 85)">
+    <rect width="460" height="270" rx="10" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5" />
+    
+    <!-- Card Header -->
+    <rect x="0" y="0" width="460" height="36" rx="10" fill="#ef4444" fill-opacity="0.15" />
+    <text x="18" y="24" fill="#f87171" font-size="14" font-weight="700">CASE 1: 2×2 Support Rule Violation</text>
+    <rect x="365" y="7" width="80" height="22" rx="4" fill="#ef4444" />
+    <text x="405" y="22" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">REJECTED</text>
+
+    <!-- Grid Explanation -->
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Prev State: (1, 1, 1, 1)  |  Candidate Mask: 1100 (cols 0, 1 mined)</text>
+
+    <!-- Row r-1 -->
+    <text x="20" y="105" fill="#cbd5e1" font-size="12" font-weight="600">Row r-1:</text>
+    <rect x="90" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="167.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="200" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="222.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="255" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="277.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <!-- Row r -->
+    <text x="20" y="165" fill="#cbd5e1" font-size="12" font-weight="600">Row r:</text>
+    <rect x="90" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="167.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="200" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="222.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="255" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="277.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <!-- 2x2 Violation Box Highlight -->
+    <rect x="85" y="80" width="110" height="110" rx="6" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,4" />
+    <circle cx="140" cy="135" r="14" fill="#ef4444" />
+    <text x="140" y="140" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="900">✕</text>
+
+    <!-- Callout description -->
+    <rect x="20" y="208" width="420" height="48" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="30" y="228" fill="#f87171" font-size="12" font-weight="700">Violation Reason:</text>
+    <text x="30" y="244" fill="#cbd5e1" font-size="11">
+      Columns 0 and 1 are mined in both rows, creating an unbraced 2×2 ceiling opening.
+    </text>
+  </g>
+
+  <!-- ==================== PANEL 2: COMPONENT ABANDONMENT ==================== -->
+  <g transform="translate(530, 85)">
+    <rect width="460" height="270" rx="10" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5" />
+    
+    <!-- Card Header -->
+    <rect x="0" y="0" width="460" height="36" rx="10" fill="#ef4444" fill-opacity="0.15" />
+    <text x="18" y="24" fill="#f87171" font-size="14" font-weight="700">CASE 2: Component Abandonment (Cut-off)</text>
+    <rect x="365" y="7" width="80" height="22" rx="4" fill="#ef4444" />
+    <text x="405" y="22" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">REJECTED</text>
+
+    <!-- Grid Explanation -->
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Prev State: (1, 0, 0, 2)  |  Candidate Mask: 1000 (only col 0 mined)</text>
+
+    <!-- Row r-1 -->
+    <text x="20" y="105" fill="#cbd5e1" font-size="12" font-weight="600">Row r-1:</text>
+    <rect x="90" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="85" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="167.5" y="110" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="200" y="85" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="222.5" y="110" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="255" y="85" width="45" height="40" rx="4" fill="url(#comp2Grad)" stroke="#c084fc" />
+    <text x="277.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+
+    <!-- Vertical Link col 0 -->
+    <line x1="112.5" y1="125" x2="112.5" y2="145" stroke="#34d399" stroke-width="3" />
+
+    <!-- Cut mark at col 3 -->
+    <line x1="277.5" y1="125" x2="277.5" y2="145" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="3,3" />
+    <text x="290" y="138" fill="#f87171" font-size="16" font-weight="900">✕</text>
+
+    <!-- Row r -->
+    <text x="20" y="165" fill="#cbd5e1" font-size="12" font-weight="600">Row r:</text>
+    <rect x="90" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="167.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="200" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="222.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="255" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="277.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <!-- Callout description -->
+    <rect x="20" y="208" width="420" height="48" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="30" y="228" fill="#f87171" font-size="12" font-weight="700">DSU Check Failed:</text>
+    <text x="30" y="244" fill="#cbd5e1" font-size="11">
+      Component 2 has no downward path into Row r. It becomes permanently disconnected!
+    </text>
+  </g>
+
+  <!-- ==================== PANEL 3: BRIDGE MERGE ==================== -->
+  <g transform="translate(30, 380)">
+    <rect width="460" height="270" rx="10" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" />
+    
+    <!-- Card Header -->
+    <rect x="0" y="0" width="460" height="36" rx="10" fill="#10b981" fill-opacity="0.15" />
+    <text x="18" y="24" fill="#34d399" font-size="14" font-weight="700">CASE 3: DSU Bridge (Merging Components)</text>
+    <rect x="375" y="7" width="70" height="22" rx="4" fill="#10b981" />
+    <text x="410" y="22" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">VALID</text>
+
+    <!-- Grid Explanation -->
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Prev State: (1, 0, 0, 2)  |  Candidate Mask: 1111 (all cells mined)</text>
+
+    <!-- Row r-1 -->
+    <text x="20" y="105" fill="#cbd5e1" font-size="12" font-weight="600">Row r-1:</text>
+    <rect x="90" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="85" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="167.5" y="110" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="200" y="85" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="222.5" y="110" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="255" y="85" width="45" height="40" rx="4" fill="url(#comp2Grad)" stroke="#c084fc" />
+    <text x="277.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">2</text>
+
+    <!-- Vertical DSU Links -->
+    <line x1="112.5" y1="125" x2="112.5" y2="145" stroke="#facc15" stroke-width="3" stroke-dasharray="4,2" />
+    <line x1="277.5" y1="125" x2="277.5" y2="145" stroke="#facc15" stroke-width="3" stroke-dasharray="4,2" />
+
+    <!-- Row r -->
+    <text x="20" y="165" fill="#cbd5e1" font-size="12" font-weight="600">Row r:</text>
+    <rect x="90" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="167.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="200" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="222.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="255" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="277.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <!-- Horizontal Bridge link highlight -->
+    <line x1="135" y1="165" x2="255" y2="165" stroke="#facc15" stroke-width="3" />
+    <text x="195" y="137" text-anchor="middle" fill="#facc15" font-size="11" font-weight="700">Horizontal Bridge</text>
+
+    <!-- Callout description -->
+    <rect x="20" y="208" width="420" height="48" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="30" y="228" fill="#34d399" font-size="12" font-weight="700">Unified into 1 Component:</text>
+    <text x="30" y="244" fill="#cbd5e1" font-size="11">
+      No 2×2 conflict (cols 1,2 were 0). DSU merges Comp 1 &amp; 2 → New Profile: (1, 1, 1, 1)
+    </text>
+  </g>
+
+  <!-- ==================== PANEL 4: CEILING ARCH CONNECTION ==================== -->
+  <g transform="translate(530, 380)">
+    <rect width="460" height="270" rx="10" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" />
+    
+    <!-- Card Header -->
+    <rect x="0" y="0" width="460" height="36" rx="10" fill="#10b981" fill-opacity="0.15" />
+    <text x="18" y="24" fill="#34d399" font-size="14" font-weight="700">CASE 4: Ceiling-Connected Arch</text>
+    <rect x="375" y="7" width="70" height="22" rx="4" fill="#10b981" />
+    <text x="410" y="22" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">VALID</text>
+
+    <!-- Grid Explanation -->
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Prev State: (1, 1, 1, 1)  |  Candidate Mask: 1001 (cols 1, 2 support pillars)</text>
+
+    <!-- Row r-1 -->
+    <text x="20" y="105" fill="#cbd5e1" font-size="12" font-weight="600">Row r-1:</text>
+    <rect x="90" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="167.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="200" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="222.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="255" y="85" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="277.5" y="110" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <!-- Vertical DSU Links -->
+    <line x1="112.5" y1="125" x2="112.5" y2="145" stroke="#facc15" stroke-width="3" stroke-dasharray="4,2" />
+    <line x1="277.5" y1="125" x2="277.5" y2="145" stroke="#facc15" stroke-width="3" stroke-dasharray="4,2" />
+
+    <!-- Row r -->
+    <text x="20" y="165" fill="#cbd5e1" font-size="12" font-weight="600">Row r:</text>
+    <rect x="90" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="112.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <rect x="145" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="167.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="200" y="145" width="45" height="40" rx="4" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="222.5" y="170" text-anchor="middle" fill="#94a3b8" font-weight="700">0</text>
+
+    <rect x="255" y="145" width="45" height="40" rx="4" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="277.5" y="170" text-anchor="middle" fill="#ffffff" font-weight="700">1</text>
+
+    <!-- Arch connectivity callout line -->
+    <path d="M 112.5,85 C 112.5,55 277.5,55 277.5,85" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4,3" />
+    <text x="195" y="60" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">Connected through Row r-1</text>
+
+    <!-- Callout description -->
+    <rect x="20" y="208" width="420" height="48" rx="6" fill="#1e293b" stroke="#334155" />
+    <text x="30" y="228" fill="#34d399" font-size="12" font-weight="700">Both Cells Share ID 1:</text>
+    <text x="30" y="244" fill="#cbd5e1" font-size="11">
+      Cols 0 &amp; 3 are separated in Row r, but linked via ceiling. New Profile: (1, 0, 0, 1)
+    </text>
+  </g>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(160, 680)">
+    <rect width="700" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+    
+    <!-- Legend Item 1 -->
+    <rect x="30" y="15" width="22" height="20" rx="3" fill="url(#comp1Grad)" stroke="#34d399" />
+    <text x="60" y="29" fill="#f8fafc" font-size="12">Mined Cell (Comp 1)</text>
+
+    <!-- Legend Item 2 -->
+    <rect x="220" y="15" width="22" height="20" rx="3" fill="url(#comp2Grad)" stroke="#c084fc" />
+    <text x="250" y="29" fill="#f8fafc" font-size="12">Mined Cell (Comp 2)</text>
+
+    <!-- Legend Item 3 -->
+    <rect x="410" y="15" width="22" height="20" rx="3" fill="url(#supportPillar)" stroke="#64748b" />
+    <text x="440" y="29" fill="#f8fafc" font-size="12">Support Pillar (0)</text>
+
+    <!-- Legend Item 4 -->
+    <line x1="585" y1="25" x2="615" y2="25" stroke="#facc15" stroke-width="3" stroke-dasharray="4,2" />
+    <text x="625" y="29" fill="#f8fafc" font-size="12">DSU Link</text>
+  </g>
+</svg>

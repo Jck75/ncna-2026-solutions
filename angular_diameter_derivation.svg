@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+      <stop offset="25%" stop-color="#ffdd55" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#ffaa00" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ff8800" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="planetGrad" cx="30%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#4facfe" />
+      <stop offset="60%" stop-color="#0062be" />
+      <stop offset="100%" stop-color="#002b66" />
+    </radialGradient>
+
+    <linearGradient id="triangleFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#4facfe" stop-opacity="0.25" />
+    </linearGradient>
+
+    <linearGradient id="shadowCone" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38ef7d" />
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00f2fe" />
+    </marker>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="480" y="38" text-anchor="middle" fill="#f8fafc" font-size="20" font-weight="700" letter-spacing="0.5">
+    Derivation of Angular Diameter: w = 2 · arcsin(R / d)
+  </text>
+  <text x="480" y="62" text-anchor="middle" fill="#94a3b8" font-size="13">
+    Geometry of tangent grazing rays from a point-source star to a spherical planet
+  </text>
+
+  <!-- Shadow Cone behind planet -->
+  <polygon points="646,78.3 960,0 960,500 646,421.7" fill="url(#shadowCone)" />
+
+  <!-- Right Triangle Fill (S -> T1 -> C) -->
+  <polygon points="100,250 646,78.3 700,250" fill="url(#triangleFill)" stroke="#00f2fe" stroke-width="1.5" stroke-dasharray="4,4" />
+
+  <!-- Planet Circle -->
+  <circle cx="700" cy="250" r="180" fill="url(#planetGrad)" stroke="#38bdf8" stroke-width="2" />
+  
+  <!-- Planet Center Dot (C) -->
+  <circle cx="700" cy="250" r="4" fill="#ffffff" />
+  <text x="715" y="255" fill="#f1f5f9" font-size="14" font-weight="600">C (Planet Center)</text>
+
+  <!-- Grazing Tangent Light Rays -->
+  <!-- Top Ray: S to T1 and beyond -->
+  <line x1="100" y1="250" x2="800" y2="29.9" stroke="#facc15" stroke-width="2.5" />
+  <!-- Bottom Ray: S to T2 and beyond -->
+  <line x1="100" y1="250" x2="800" y2="470.1" stroke="#facc15" stroke-width="2.5" />
+
+  <!-- Centerline / Distance axis (Hypotenuse): S to C -->
+  <line x1="100" y1="250" x2="700" y2="250" stroke="#00f2fe" stroke-width="2.5" stroke-dasharray="7,4" />
+
+  <!-- Radius at Tangency: C to T1 (Opposite leg) -->
+  <line x1="700" y1="250" x2="646" y2="78.3" stroke="#f43f5e" stroke-width="3" />
+
+  <!-- Right Angle Symbol at T1 (square size = 18) -->
+  <polyline points="628.8,83.7 634.2,100.9 651.4,95.5" fill="none" stroke="#f43f5e" stroke-width="2" />
+  <circle cx="638" cy="93" r="2" fill="#f43f5e" />
+
+  <!-- Tangent Point T1 Dot -->
+  <circle cx="646" cy="78.3" r="5" fill="#f43f5e" />
+  <text x="655" y="72" fill="#f43f5e" font-size="14" font-weight="700">T₁ (Tangent Point)</text>
+
+  <!-- Tangent Point T2 Dot -->
+  <circle cx="646" cy="421.7" r="5" fill="#94a3b8" />
+  <text x="655" y="435" fill="#94a3b8" font-size="13">T₂ (Lower Tangent)</text>
+
+  <!-- Right Angle Label Callout -->
+  <path d="M 625,60 L 590,35" stroke="#f43f5e" stroke-width="1.2" />
+  <text x="585" y="30" text-anchor="end" fill="#f43f5e" font-size="12" font-weight="600">
+    Radius ⊥ Tangent Ray (90°)
+  </text>
+
+  <!-- Angle Arcs at Star S -->
+  <!-- Total angle w arc (r = 170) -->
+  <path d="M 262.2,198.9 A 170 170 0 0 1 262.2,301.1" fill="none" stroke="#facc15" stroke-width="2" />
+  <text x="280" y="255" fill="#facc15" font-size="15" font-weight="700">w (Total Angle)</text>
+
+  <!-- Half-angle alpha arc (r = 210) -->
+  <path d="M 300.3,186.9 A 210 210 0 0 1 310,250" fill="none" stroke="#38ef7d" stroke-width="2" stroke-dasharray="3,3" />
+  <text x="325" y="222" fill="#38ef7d" font-size="15" font-weight="700">α</text>
+
+  <!-- Labels on Triangle Sides -->
+  <!-- Hypotenuse label -->
+  <rect x="330" y="258" width="160" height="26" rx="4" fill="#0b0f19" fill-opacity="0.85" stroke="#00f2fe" stroke-width="1" />
+  <text x="410" y="276" text-anchor="middle" fill="#00f2fe" font-size="13" font-weight="600">
+    Distance d (Hypotenuse)
+  </text>
+
+  <!-- Radius R label -->
+  <rect x="680" y="150" width="130" height="26" rx="4" fill="#0b0f19" fill-opacity="0.85" stroke="#f43f5e" stroke-width="1" />
+  <text x="745" y="168" text-anchor="middle" fill="#f43f5e" font-size="13" font-weight="600">
+    Radius R (Opposite)
+  </text>
+
+  <!-- Star Point (S) & Glow -->
+  <circle cx="100" cy="250" r="38" fill="url(#starGlow)" />
+  <circle cx="100" cy="250" r="7" fill="#ffffff" />
+  <text x="100" y="305" text-anchor="middle" fill="#facc15" font-size="14" font-weight="700">Star S (Origin)</text>
+
+  <!-- Horizon Curvature Note -->
+  <path d="M 646,78.3 L 646,250" stroke="#94a3b8" stroke-width="1" stroke-dasharray="2,3" />
+  <text x="642" y="238" text-anchor="end" fill="#94a3b8" font-size="11">
+    Tangent is in front of center (x &lt; d)
+  </text>
+
+  <!-- Bottom Explanatory Formula Card -->
+  <rect x="50" y="465" width="860" height="75" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  
+  <text x="75" y="492" fill="#38bdf8" font-size="13" font-weight="700">STEP 1: Right Triangle at T₁</text>
+  <text x="75" y="512" fill="#cbd5e1" font-size="12">
+    In right triangle ΔST₁C, hypotenuse = d, opposite leg = R:
+  </text>
+  <text x="75" y="530" fill="#38ef7d" font-size="13" font-weight="700">
+    sin(α) = Opposite / Hypotenuse = R / d
+  </text>
+
+  <text x="440" y="492" fill="#38bdf8" font-size="13" font-weight="700">STEP 2: Solve for Half-Angle α</text>
+  <text x="440" y="512" fill="#cbd5e1" font-size="12">
+    Taking the inverse sine of both sides:
+  </text>
+  <text x="440" y="530" fill="#facc15" font-size="13" font-weight="700">
+    α = arcsin(R / d)
+  </text>
+
+  <text x="720" y="492" fill="#38bdf8" font-size="13" font-weight="700">STEP 3: Full Angular Diameter w</text>
+  <text x="720" y="512" fill="#cbd5e1" font-size="12">
+    By symmetry, w = 2α:
+  </text>
+  <text x="720" y="530" fill="#f43f5e" font-size="14" font-weight="800">
+    w = 2 · arcsin(R / d)
+  </text>
+</svg>
